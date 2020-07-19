@@ -7,7 +7,8 @@ export interface NextApiRequestExtended extends NextApiRequest {
   username: string | null;
 }
 
-export default nextConnect<NextApiRequestExtended, NextApiResponse>({
+export default function getHandler() {
+  return nextConnect<NextApiRequestExtended, NextApiResponse>({
   onError(error, req, res) {
     res.status(501).json({ error: `Sorry something Happened! ${error.message}` });
   },
@@ -32,4 +33,4 @@ export default nextConnect<NextApiRequestExtended, NextApiResponse>({
       next();
     });
   }
-});
+})};

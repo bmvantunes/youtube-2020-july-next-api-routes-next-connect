@@ -1,7 +1,7 @@
-import handler from '../../handler';
-import { openDB } from '../../openDB';
+import getHandler from '../../../handler';
+import { openDB } from '../../../openDB';
 
-export default handler.get(async (req, res) => {
+export default getHandler().get(async (req, res) => {
   const db = await openDB();
   const champions = await db.all(`
     SELECT * 
