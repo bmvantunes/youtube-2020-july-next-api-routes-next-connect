@@ -1,7 +1,7 @@
-import handler from '../../handler';
+import getHandler from '../../handler';
 import { openDB } from '../../openDB';
 
-export default handler
+export default getHandler()
   .get(async (req, res) => {
     const db = await openDB();
     const allDrivers = await db.all(`SELECT * FROM Driver`);
